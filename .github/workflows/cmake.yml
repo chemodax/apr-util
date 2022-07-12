@@ -25,11 +25,18 @@ jobs:
        path: apr-util
 
     - name: Configure APR
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S apr
+      run: cmake -B ${{github.workspace}}/apr-build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S apr
 
     - name: Build APR 
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/apr-build --config ${{env.BUILD_TYPE}}
 
     - name: Install APR
-      run: cmake --install ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --install ${{github.workspace}}/apr-build --config ${{env.BUILD_TYPE}}
+
+    - name: Configure APR-Util
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S apr-util
+
+    - name: Build APR-Util
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
