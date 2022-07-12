@@ -37,7 +37,7 @@ jobs:
       run: cmake --install ${{github.workspace}}/apr-build --config ${{env.BUILD_TYPE}}
 
     - name: Configure APR-Util
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S apr-util -DCMAKE_TOOLCHAIN_FILE=С:\vcpkg\scripts\buildsystems\vcpkg.cmake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -S apr-util -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
 
     - name: Build APR-Util
       # Build your program with the given configuration
